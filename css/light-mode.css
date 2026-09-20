@@ -1,0 +1,352 @@
+/* ============================================================
+   LIGHT MODE — sudoxs theme (Crimson on Cream)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+:root {
+    --lm-bg-main: #f4f4f6;
+    --lm-bg-container: #ffffff;
+    --lm-bg-card: #ffffff;
+    --lm-bg-input: #fafafa;
+    --lm-bg-command: #1a1a1a;
+    --lm-border: #e0e0e4;
+    --lm-accent: #d10029;
+    --lm-accent-bright: #ff0033;
+    --lm-accent-glow: rgba(209, 0, 41, 0.25);
+    --lm-text-main: #1a1a1a;
+    --lm-text-dim: #666666;
+    --lm-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+/* ---------- Base ---------- */
+[data-theme="light"] {
+    background-color: var(--lm-bg-main) !important;
+    color: var(--lm-text-main);
+    font-family: var(--lm-mono);
+}
+
+[data-theme="light"] .card {
+    background-color: var(--lm-bg-card) !important;
+    color: var(--lm-text-main);
+    border: 1px solid var(--lm-border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme="light"] .card:hover {
+    border-color: var(--lm-accent);
+    box-shadow: 0 0 15px var(--lm-accent-glow) !important;
+}
+
+[data-theme="light"] .bg-white {
+    background-color: #f0f0f2 !important;
+}
+
+[data-theme="light"] .bg-dark {
+    background-color: var(--lm-bg-command) !important;
+}
+
+/* ---------- GitHub corner ---------- */
+[data-theme="light"] .github-corner > svg {
+    fill: var(--lm-accent) !important;
+    color: #fff !important;
+    filter: drop-shadow(0 0 6px var(--lm-accent-glow));
+}
+
+/* ---------- Headings ---------- */
+[data-theme="light"] h2 {
+    color: var(--lm-text-main);
+    font-family: var(--lm-mono);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+[data-theme="light"] .rainbow {
+    color: var(--lm-accent) !important;
+    text-shadow: 0 0 12px var(--lm-accent-glow);
+}
+
+[data-theme="light"] .card-title {
+    color: var(--lm-accent) !important;
+    font-weight: 600;
+}
+
+/* ---------- Prompt sign ---------- */
+[data-theme="light"] .prompt-sign {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+    pointer-events: none;
+    font-size: 1em;
+    color: var(--lm-accent);
+}
+
+/* ---------- Input group ---------- */
+[data-theme="light"] .input-group-text {
+    background-color: #f5e6e9;
+    color: var(--lm-accent);
+    border: 1px solid #e8d0d5;
+    font-family: var(--lm-mono);
+    font-weight: 500;
+}
+
+[data-theme="light"] .form-control {
+    background-color: var(--lm-bg-input);
+    color: var(--lm-text-main);
+    border: 1px solid var(--lm-border);
+    font-family: var(--lm-mono);
+}
+
+[data-theme="light"] .form-control:focus {
+    background-color: #fff;
+    color: var(--lm-text-main);
+    border-color: var(--lm-accent);
+    box-shadow: 0 0 10px var(--lm-accent-glow);
+}
+
+/* ---------- Buttons ---------- */
+[data-theme="light"] .btn {
+    font-family: var(--lm-mono);
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+[data-theme="light"] .btn-primary {
+    background-color: var(--lm-accent);
+    color: #fff;
+    border: 1px solid var(--lm-accent);
+    box-shadow: 0 0 8px var(--lm-accent-glow);
+}
+
+[data-theme="light"] .btn-primary:hover,
+[data-theme="light"] .btn-primary:focus {
+    background-color: #a80020;
+    border-color: #a80020;
+    color: #fff;
+    box-shadow: 0 0 16px rgba(209, 0, 41, 0.5);
+}
+
+[data-theme="light"] .btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--lm-text-dim);
+    color: var(--lm-text-main);
+}
+
+[data-theme="light"] .btn-secondary:hover {
+    background-color: var(--lm-accent);
+    border-color: var(--lm-accent);
+    color: #fff;
+    box-shadow: 0 0 12px var(--lm-accent-glow);
+}
+
+/* ---------- FIX: Show Advanced + Save icon hover/click ---------- */
+[data-theme="light"] .advanced-controls-wrapper {
+    position: relative;
+    z-index: 10;
+}
+
+[data-theme="light"] .advanced-controls-wrapper .custom-control-label {
+    cursor: pointer;
+    pointer-events: auto;
+    position: relative;
+    z-index: 11;
+    color: var(--lm-text-main);
+}
+
+[data-theme="light"] .advanced-controls-wrapper .custom-control-input {
+    pointer-events: auto;
+    position: relative;
+    z-index: 11;
+}
+
+[data-theme="light"] .advanced-controls-wrapper .download-svg {
+    cursor: pointer;
+    pointer-events: auto;
+    position: relative;
+    z-index: 11;
+}
+
+/* ---------- Highlighted ---------- */
+[data-theme="light"] .highlighted-parameter {
+    color: var(--lm-accent);
+    font-weight: bold;
+    font-size: 1em;
+}
+
+[data-theme="light"] .highlighted-warning {
+    color: #cc0000;
+    font-weight: bold;
+}
+
+/* ---------- Switch ---------- */
+[data-theme="light"] .custom-switch label {
+    cursor: pointer;
+    user-select: none;
+    color: var(--lm-text-main);
+}
+
+[data-theme="light"] .custom-control-input:checked~.custom-control-label::before {
+    background-color: var(--lm-accent);
+    border-color: var(--lm-accent);
+    box-shadow: 0 0 6px var(--lm-accent-glow);
+}
+
+/* ---------- Command boxes ---------- */
+[data-theme="light"] #listener-command,
+[data-theme="light"] #reverse-shell-command,
+[data-theme="light"] #bind-shell-command,
+[data-theme="light"] #msfvenom-command,
+[data-theme="light"] #hoaxshell-command,
+[data-theme="light"] #assembled-command {
+    border: 1px solid var(--lm-accent) !important;
+    border-radius: 5px;
+    background-color: var(--lm-bg-command);
+    color: #e6e6e6;
+    font-family: var(--lm-mono);
+    box-shadow:
+        0 0 0 1px rgba(209, 0, 41, 0.1),
+        0 0 15px var(--lm-accent-glow),
+        inset 0 0 20px rgba(209, 0, 41, 0.05);
+    max-height: 20rem;
+}
+
+[data-theme="light"] #listener-command:hover,
+[data-theme="light"] #reverse-shell-command:hover,
+[data-theme="light"] #bind-shell-command:hover,
+[data-theme="light"] #msfvenom-command:hover,
+[data-theme="light"] #hoaxshell-command:hover,
+[data-theme="light"] #assembled-command:hover {
+    box-shadow:
+        0 0 0 1px var(--lm-accent-glow),
+        0 0 25px var(--lm-accent-glow),
+        inset 0 0 30px rgba(209, 0, 41, 0.08);
+}
+
+/* ---------- Selects ---------- */
+[data-theme="light"] .custom-select {
+    background-color: var(--lm-bg-input);
+    color: var(--lm-text-main);
+    border: 1px solid var(--lm-border);
+    font-family: var(--lm-mono);
+}
+
+[data-theme="light"] .custom-select:hover,
+[data-theme="light"] .custom-select:focus {
+    border-color: var(--lm-accent);
+    box-shadow: 0 0 8px var(--lm-accent-glow);
+}
+
+/* ---------- Tabs ---------- */
+[data-theme="light"] .nav-link {
+    color: var(--lm-text-dim);
+    background: transparent;
+    border: 1px solid transparent;
+    font-family: var(--lm-mono);
+    transition: all 0.2s ease;
+}
+
+[data-theme="light"] .nav-link:hover {
+    color: var(--lm-accent);
+    background-color: rgba(209, 0, 41, 0.06);
+    border-color: rgba(209, 0, 41, 0.2);
+}
+
+[data-theme="light"] .nav-link.active {
+    background-color: var(--lm-accent);
+    color: #fff;
+    border-color: var(--lm-accent);
+    box-shadow: 0 0 12px var(--lm-accent-glow);
+}
+
+/* ---------- Links ---------- */
+[data-theme="light"] a {
+    color: var(--lm-accent);
+    text-decoration: none;
+}
+
+[data-theme="light"] a:hover {
+    color: #a80020;
+    text-decoration: underline;
+}
+
+[data-theme="light"] a[href*="t3l3machus"] {
+    background: none;
+}
+
+/* ---------- List group ---------- */
+[data-theme="light"] .list-group-item {
+    background-color: #fafafa;
+    color: var(--lm-text-main);
+    border-color: var(--lm-border);
+    font-family: var(--lm-mono);
+    transition: all 0.15s ease;
+}
+
+[data-theme="light"] .list-group-item.active {
+    background-color: var(--lm-accent);
+    color: #fff;
+    border-color: var(--lm-accent);
+    box-shadow: inset 3px 0 0 #a80020;
+}
+
+[data-theme="light"] .list-group-item:hover,
+[data-theme="light"] .list-group-item.hover {
+    background-color: #f5e6e9;
+    color: var(--lm-accent);
+    border-color: var(--lm-accent);
+}
+
+/* ---------- Container ---------- */
+[data-theme="light"] .container {
+    padding: 20px;
+    border-radius: 20px;
+    background: var(--lm-bg-container);
+    border: 1px solid var(--lm-border);
+    box-shadow:
+        0 0 0 1px rgba(209, 0, 41, 0.05),
+        0 0 30px rgba(209, 0, 41, 0.08),
+        0 13px 27px -5px rgba(0, 0, 0, 0.1);
+    height: 100% !important;
+    margin: 20px auto;
+}
+
+/* ---------- Misc ---------- */
+[data-theme="light"] .custom-control-label {
+    color: var(--lm-text-main);
+}
+
+[data-theme="light"] .pre-wrap {
+    white-space: pre-wrap;
+}
+
+[data-theme="light"] .card-body {
+    max-height: 40rem;
+}
+
+[data-theme="light"] .download-svg {
+    filter: invert(20%) sepia(90%) saturate(4000%) hue-rotate(340deg) brightness(90%) contrast(110%);
+}
+
+[data-theme="light"] .download-svg:hover {
+    filter: invert(30%) sepia(100%) saturate(5000%) hue-rotate(340deg) brightness(80%) contrast(120%);
+}
+
+[data-theme="light"] .toast {
+    background-color: #fff !important;
+    border: 1px solid var(--lm-accent);
+    box-shadow: 0 0 15px var(--lm-accent-glow);
+    color: var(--lm-text-main);
+    font-family: var(--lm-mono);
+}
+
+.shadow {
+    margin-bottom: 0px !important;
+}
+
+.middle-card {
+    min-height: 500px;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 1.5rem;
+}

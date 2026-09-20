@@ -1,0 +1,437 @@
+/* ============================================================
+   DARK MODE — sudoxs theme (Neon Red on Black)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+/* ---------- Root variables ---------- */
+:root {
+    --bg-main: #0a0a0a;
+    --bg-container: #111111;
+    --bg-card: #161616;
+    --bg-input: #1a1a1a;
+    --bg-command: #0d0d0d;
+    --border-color: #2a0000;
+    --border-hover: #ff0033;
+    --accent: #ff0033;
+    --accent-bright: #ff1a4d;
+    --accent-glow: rgba(255, 0, 51, 0.5);
+    --accent-glow-strong: rgba(255, 0, 51, 0.85);
+    --text-main: #e6e6e6;
+    --text-dim: #888888;
+    --text-accent: #ff3355;
+    --warning: #ff3333;
+    --mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+/* ---------- Base ---------- */
+body {
+    background-color: var(--bg-main) !important;
+    color: var(--text-main);
+    font-family: var(--mono);
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 0, 51, 0.015) 0px,
+        rgba(255, 0, 51, 0.015) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    opacity: 0.6;
+}
+
+/* ---------- Prompt sign ---------- */
+.prompt-sign {
+    position: absolute;
+    top: 25px;
+    left: 40px;
+    pointer-events: none;
+    font-size: 1em;
+    color: var(--accent);
+    text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* ---------- Highlighted params ---------- */
+.highlighted-parameter {
+    color: var(--accent-bright);
+    font-weight: bold;
+    font-size: 1em;
+    text-shadow: 0 0 6px var(--accent-glow);
+}
+
+.highlighted-warning {
+    color: var(--warning);
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 51, 51, 0.7);
+}
+
+/* ---------- Switch ---------- */
+.custom-switch label {
+    cursor: pointer;
+    user-select: none;
+    color: var(--text-main);
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* ---------- FIX: Show Advanced + Save icon hover/click ---------- */
+.advanced-controls-wrapper {
+    position: relative;
+    z-index: 10;
+}
+
+.advanced-controls-wrapper .custom-control-label {
+    cursor: pointer;
+    pointer-events: auto;
+    position: relative;
+    z-index: 11;
+}
+
+.advanced-controls-wrapper .custom-control-input {
+    pointer-events: auto;
+    position: relative;
+    z-index: 11;
+}
+
+.advanced-controls-wrapper .download-svg {
+    cursor: pointer;
+    pointer-events: auto;
+    position: relative;
+    z-index: 11;
+}
+
+/* ---------- Nav Tabs ---------- */
+.nav-tabs {
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-dim);
+    background: transparent;
+    border: 1px solid transparent;
+    font-family: var(--mono);
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--accent);
+    background-color: rgba(255, 0, 51, 0.08);
+    border-color: var(--border-color);
+    text-shadow: 0 0 8px var(--accent-glow);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--accent);
+    background-color: rgba(255, 0, 51, 0.12);
+    border-color: var(--accent) var(--accent) transparent;
+    text-shadow: 0 0 10px var(--accent-glow-strong);
+    box-shadow: 0 -2px 12px rgba(255, 0, 51, 0.3);
+}
+
+_:-ms-fullscreen, :root body {
+    overflow-y: scroll;
+}
+
+/* ---------- Command boxes ---------- */
+#listener-command,
+#reverse-shell-command,
+#bind-shell-command,
+#msfvenom-command,
+#hoaxshell-command,
+#assembled-command {
+    border: 1px solid var(--border-color) !important;
+    border-radius: 5px;
+    background-color: var(--bg-command);
+    color: var(--text-main);
+    font-family: var(--mono);
+    box-shadow:
+        0 0 0 1px rgba(255, 0, 51, 0.15),
+        0 0 15px rgba(255, 0, 51, 0.15),
+        inset 0 0 20px rgba(255, 0, 51, 0.03);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#listener-command:hover,
+#reverse-shell-command:hover,
+#bind-shell-command:hover,
+#msfvenom-command:hover,
+#hoaxshell-command:hover,
+#assembled-command:hover {
+    border-color: var(--accent) !important;
+    box-shadow:
+        0 0 0 1px var(--accent-glow),
+        0 0 25px var(--accent-glow),
+        inset 0 0 30px rgba(255, 0, 51, 0.05);
+}
+
+#reverse-shell-command,
+#bind-shell-command,
+#msfvenom-command,
+#hoaxshell-command,
+#assembled-command {
+    max-height: 20rem;
+}
+
+/* ---------- Theme selector ---------- */
+#theme-selector {
+    width: 100px;
+    height: 30px;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.custom-select {
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    font-family: var(--mono);
+    transition: all 0.2s ease;
+}
+
+.custom-select:hover,
+.custom-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+    background-color: var(--bg-input);
+    color: var(--text-main);
+}
+
+.custom-select option {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+}
+
+/* ---------- Container ---------- */
+.container {
+    padding: 20px;
+    border-radius: 20px;
+    background: var(--bg-container);
+    border: 1px solid var(--border-color);
+    box-shadow:
+        0 0 0 1px rgba(255, 0, 51, 0.08),
+        0 0 40px rgba(255, 0, 51, 0.12),
+        0 13px 27px -5px rgba(0, 0, 0, 0.8);
+    height: 100% !important;
+    margin: 20px auto;
+}
+
+/* ---------- Headings ---------- */
+h2 {
+    color: var(--text-main);
+    text-align: center;
+    font-family: var(--mono);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h2.rainbow {
+    color: var(--accent) !important;
+    text-shadow:
+        0 0 8px var(--accent-glow),
+        0 0 20px var(--accent-glow),
+        0 0 40px rgba(255, 0, 51, 0.3);
+    animation: neon-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes neon-pulse {
+    0%, 100% {
+        text-shadow:
+            0 0 8px var(--accent-glow),
+            0 0 20px var(--accent-glow),
+            0 0 40px rgba(255, 0, 51, 0.3);
+    }
+    50% {
+        text-shadow:
+            0 0 12px var(--accent-glow-strong),
+            0 0 30px var(--accent-glow),
+            0 0 60px rgba(255, 0, 51, 0.5);
+    }
+}
+
+h5 {
+    color: var(--text-main);
+    font-family: var(--mono);
+    letter-spacing: 1px;
+}
+
+.card-title {
+    color: var(--accent) !important;
+    text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* ---------- Cards ---------- */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: rgba(255, 0, 51, 0.4);
+    box-shadow: 0 0 20px rgba(255, 0, 51, 0.1);
+}
+
+.pre-wrap {
+    white-space: pre-wrap;
+}
+
+.card-body {
+    max-height: 40rem;
+}
+
+/* ---------- List group ---------- */
+.list-group-item {
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    border-color: var(--border-color);
+    font-family: var(--mono);
+    transition: all 0.15s ease;
+}
+
+.list-group-item.active,
+.list-group-item-action:focus,
+.list-group-item-action:hover {
+    background-color: rgba(255, 0, 51, 0.18);
+    color: var(--accent);
+    border-color: var(--accent);
+    text-shadow: 0 0 8px var(--accent-glow);
+    box-shadow: inset 3px 0 0 var(--accent);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    font-family: var(--mono);
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-shadow: 0 0 6px var(--accent-glow);
+    box-shadow: 0 0 8px rgba(255, 0, 51, 0.2);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #000;
+    text-shadow: none;
+    box-shadow: 0 0 20px var(--accent-glow-strong);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--text-dim);
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #000;
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+button {
+    outline: none;
+}
+
+/* ---------- Form controls ---------- */
+.form-control {
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+    font-family: var(--mono);
+    transition: all 0.2s ease;
+}
+
+.form-control:focus {
+    background-color: var(--bg-input);
+    color: var(--text-main);
+    border-color: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.input-group-text {
+    background-color: var(--bg-card);
+    color: var(--accent);
+    border: 1px solid var(--border-color);
+    font-family: var(--mono);
+    font-weight: 500;
+}
+
+/* ---------- GitHub corner ---------- */
+.github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+}
+
+.github-corner svg {
+    filter: drop-shadow(0 0 6px var(--accent-glow));
+}
+
+/* ---------- Download SVG ---------- */
+.download-svg {
+    height: 20px;
+    width: 20px;
+    filter: invert(20%) sepia(90%) saturate(4000%) hue-rotate(340deg) brightness(110%) contrast(110%);
+    transition: filter 0.2s ease;
+}
+
+.download-svg:hover {
+    filter: invert(30%) sepia(100%) saturate(5000%) hue-rotate(340deg) brightness(120%) contrast(120%);
+}
+
+/* ---------- Toast ---------- */
+.toast {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+    font-family: var(--mono);
+}
+
+/* ---------- Misc ---------- */
+.shadow {
+    margin-bottom: 0px !important;
+}
+
+.middle-card {
+    min-height: 500px;
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 1.5rem;
+}
+
+/* ---------- Animations ---------- */
+@keyframes octocat-wave {
+    0%, 100% { transform: rotate(0); }
+    20%, 60% { transform: rotate(-25deg); }
+    40%, 80% { transform: rotate(10deg); }
+}
+
+@media (max-width:500px) {
+    .github-corner:hover .octo-arm { animation: none; }
+    .github-corner .octo-arm { animation: octocat-wave 560ms ease-in-out; }
+}
